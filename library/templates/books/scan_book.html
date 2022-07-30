@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Scan Book
+{% endblock %}
+
+{% block content %}
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+        <script>
+            $(document).on('submit','#capture',function(e)
+         {
+e.preventDefault();
+$.ajax({
+type:'POST',
+url:'/capture',
+data:{},
+success:function()
+{
+alert('saved');
+}
+})
+});
+
+$(document).on('submit','#startscan',function(e)
+         {
+$(".btn-success").attr("disabled",true);
+$(".btn-primary").attr("disabled",false);
+$(".btn-danger").attr("disabled",false);
+e.preventDefault();
+$.ajax({
+type:'POST',
+url:'/startscan',
+data:{},
+success:function()
+{
+console.log('started');
+}
+
+})
+});
+
+
+
+$(document).on('submit','#stopscan',function(e)
+         {
+$(".btn-success").attr("disabled",false);
+$(".btn-primary").attr("disabled",true);
+$(".btn-danger").attr("disabled",true);
+e.preventDefault();
+$.ajax({
+type:'POST',
+url:'/stopscan',
+data:{},
+success:function()
+{
+console.log('stopped');
+}
+})
+});
+
+        </script>
+
+
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col" class="table-id"><form action= "/startscan" id="startscan"  method="POST" >
+                        <button class="btn btn-success" type="submit" name="query"  value="">
+                            Start Scanning
+                        </button>
+                        </form></th>
+                    <th scope="col" class="table-id"><form action= "/capture" id="capture"  method="POST" >
+                            <button class="btn btn-primary" type="submit"  name="query" value="" disabled>
+                                Capture
+                            </button>
+                            </form></th>
+                    <th scope="col" class="table-id"><form action= "/stopscan" id="stopscan"  method="POST" >
+                            <button class="btn btn-danger" type="submit"  name="query"  value="" disabled>
+                                Stop Scanning
+                            </button>
+                            </form></th>
+                    
+                        
+                        
+                
+                </tr>
+            </thead>
+            
+        </table>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8  offset-lg-2">
+                    <h3 class="mt-5">Live Streaming</h3>
+                    <img src="{{ url_for('video_feed') }}" width="100%">
+                </div>
+            </div>
+        </div>
+
+        
+{% endblock %}
