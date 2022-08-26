@@ -1,4 +1,10 @@
 # SIH_OCR_Convertor
 OCR Convertor
 
-GitHub is weird.
+|Contributors|
+|------------|
+|Aayush|
+|Amir|
+|Arnav|
+|Mahita|
+|Shreyas|
