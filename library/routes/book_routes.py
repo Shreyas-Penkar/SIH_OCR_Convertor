@@ -175,7 +175,7 @@ def capture():
 
 @app.route('/stopscan', methods=['POST'])
 def stop_scan():
-    ocr()
+    # ocr()
     img_to_pdf()
     return {}
 
