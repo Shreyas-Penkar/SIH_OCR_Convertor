@@ -3,6 +3,12 @@ import subprocess
 import pyAesCrypt
 import re
 
+print("""
+░▒█▀▀▀░█▀▀▄░█▀▄░█▀▀▄░█░░█░▄▀▀▄░▀█▀░░▀░░█▀▀▄░█▀▀▀░░░░░░░░░
+░▒█▀▀▀░█░▒█░█░░░█▄▄▀░█▄▄█░█▄▄█░░█░░░█▀░█░▒█░█░▀▄░▄▄░▄▄░▄▄
+░▒█▄▄▄░▀░░▀░▀▀▀░▀░▀▀░▄▄▄▀░█░░░░░▀░░▀▀▀░▀░░▀░▀▀▀▀░▀▀░▀▀░▀▀
+
+""")
 input_file = "sample.pdf"
 with open(input_file, "rb") as pdf_file:
     reader = PdfFileReader(input_file, strict=False)
@@ -14,4 +20,12 @@ encrypted_file_name = "{}_encrypted.pdf".format(re.split("[.]", input_file)[0])
 with open(encrypted_file_name, 'wb') as f:
     writer.write(f)
 
+print("""
+░░░░░░   ░░░░░░  ░░░    ░░ ░░░░░░░ ░░ 
+▒▒   ▒▒ ▒▒    ▒▒ ▒▒▒▒   ▒▒ ▒▒      ▒▒ 
+▒▒   ▒▒ ▒▒    ▒▒ ▒▒ ▒▒  ▒▒ ▒▒▒▒▒   ▒▒ 
+▓▓   ▓▓ ▓▓    ▓▓ ▓▓  ▓▓ ▓▓ ▓▓         
+██████   ██████  ██   ████ ███████ ██ 
+
+""")
 
